@@ -1,35 +1,17 @@
-# vue3-test-project
+# 說明
 
-This template should help get you started developing with Vue 3 in Vite.
+主要用來熟悉 vue3 寫法的專案。  
+使用到的技術包含：
 
-## Recommended IDE Setup
+- Vue3
+- Tailwind CSS
+- Headless UI
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+# 內含的小工具
 
-## Customize configuration
+## 1.To Do List
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+### 功能
 
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+- 新增代辦清單，內容包含名稱、描述與截止日期
+- 篩選清單：全部、完成、未完成
