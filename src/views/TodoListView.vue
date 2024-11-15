@@ -1,5 +1,5 @@
 <script setup>
-import { reactive } from 'vue'
+import { reactive, ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useTodos } from '../stores/todo'
 import {
@@ -12,6 +12,7 @@ const todosStore = useTodos()
 const { filter, filteredTodos } = storeToRefs(todosStore)
 
 const options = ['all', 'finished', 'unfinished']
+const emptyName = ref(false)
 const newTodo = reactive({
   name: '',
   description: '',
@@ -19,15 +20,24 @@ const newTodo = reactive({
 })
 
 function addTodo() {
-  if (!newTodo) {
+  // 檢查代辦清單有沒有名稱，沒有的話不要新增
+  checkName()
+  if (emptyName.value) {
     return
   }
+
+  // 新增代辦
   todosStore.addTodo(newTodo)
 
   // 清空新增欄位
   for (const key in newTodo) {
     newTodo[key] = ''
   }
+}
+
+// 檢查有無代辦名稱
+function checkName() {
+  emptyName.value = newTodo.name == '' ? true : false
 }
 </script>
 
@@ -67,18 +77,21 @@ function addTodo() {
   <section class="mb-2 grid">
     <label class="block text-xl font-medium text-white mb-2">New Todo:</label>
     <div class="mb-4 px-4">
+      <!-- 名稱 -->
       <label class="block text-sm/6 font-medium text-white">
-        Name
-        <input v-model="newTodo.name" type="text"
+        Name <span v-if="emptyName" class="text-red-500 pl-2">please input name</span>
+        <input v-model="newTodo.name" type="text" @input="checkName"
           class="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"
-          placeholder="Input to-do name" />
+          :class="{ 'border-red-500 border-2': emptyName }" placeholder="Input to-do name" />
       </label>
+      <!-- 描述 -->
       <label class="block text-sm/6 font-medium text-white">
         Description
         <input v-model="newTodo.description" type="text"
           class="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"
           placeholder="Input to-do description" />
       </label>
+      <!-- 截止日期 -->
       <label class="block text-sm/6 font-medium text-white">
         Deadline
         <input v-model="newTodo.deadline" type="text"
