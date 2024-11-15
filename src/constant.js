@@ -22,3 +22,11 @@ export const externalLinks = [
     icon: '',
   },
 ]
+
+export const mainPackage = [
+  { name: 'vue', version: '^3.5.12' },
+  { name: 'vue-router', version: '^4.4.5' },
+  { name: 'pinia', version: '^2.2.4' },
+  { name: 'tailwindcss', version: '^3.4.14' },
+  { name: 'vite', version: '^5.4.10' },
+]

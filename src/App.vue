@@ -13,7 +13,12 @@ watchEffect(() => {
 
 function setTitle() {
   const nav = navList.find(nav => nav.url == route.path)
-  title.value = nav.name
+  console.log(route)
+  if (nav.name == 'About') {
+    title.value = '關於本專案'
+  } else {
+    title.value = nav.name
+  }
 }
 </script>
 
@@ -39,7 +44,7 @@ function setTitle() {
   </header>
   <main class="right-wrapper">
     <div class="container">
-      <h2 class="text-3xl text-white font-bold">{{ title }}</h2>
+      <h2 class="text-3xl text-white font-bold mb-2">{{ title }}</h2>
       <RouterView />
     </div>
   </main>
