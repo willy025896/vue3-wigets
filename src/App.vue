@@ -13,7 +13,6 @@ watchEffect(() => {
 
 function setTitle() {
   const nav = navList.find(nav => nav.url == route.path)
-  console.log(route)
   if (nav.name == 'About') {
     title.value = '關於本專案'
   } else {
