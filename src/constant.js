@@ -16,6 +16,10 @@ export const navList = [
     name: 'Caculator',
     url: '/caculator',
   },
+  {
+    name: 'Json Tool',
+    url: '/json-tool',
+  },
 ]
 
 // 外部連結

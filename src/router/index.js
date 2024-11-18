@@ -27,6 +27,11 @@ const router = createRouter({
       name: 'Caculator',
       component: () => import('../views/CaculatorView.vue'),
     },
+    {
+      path: '/json-tool',
+      name: 'JsonTool',
+      component: () => import('../views/JsonToolView.vue'),
+    },
   ],
 })
 
