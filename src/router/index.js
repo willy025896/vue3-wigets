@@ -22,6 +22,11 @@ const router = createRouter({
       name: 'ToDoList',
       component: () => import('../views/TodoListView.vue'),
     },
+    {
+      path: '/caculator',
+      name: 'Caculator',
+      component: () => import('../views/CaculatorView.vue'),
+    },
   ],
 })
 

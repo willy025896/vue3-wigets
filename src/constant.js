@@ -12,6 +12,10 @@ export const navList = [
     name: 'To Do List',
     url: '/to-do-list',
   },
+  {
+    name: 'Caculator',
+    url: '/caculator',
+  },
 ]
 
 // 外部連結
