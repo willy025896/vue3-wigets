@@ -22,7 +22,7 @@ function setTitle() {
 </script>
 
 <template>
-  <header>
+  <header class="lg:border-r lg:border-[#5454547a]">
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
     <div class="wrapper">
       <HelloWorld msg="Welcome!" />
@@ -53,7 +53,6 @@ function setTitle() {
 header {
   line-height: 1.5;
   max-height: 100vh;
-  border-right: 1px solid var(--color-border);
 }
 
 .logo {
