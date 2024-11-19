@@ -40,7 +40,7 @@ function decideValueString(value) {
 
 <template>
   <div class="w-full h-screen">
-    <h2 class="text-xl mb-2">將 json 字串 JSON.parse() 並格式化</h2>
+    <h2 class="text-xl mb-2">將 Json 字串 JSON.parse() 並格式化</h2>
     <!-- input -->
     <div class="h-1/3">
       <textarea class="p-1 text-black rounded-md w-full h-full resize" v-model="input" name="input" id="input"

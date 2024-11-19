@@ -17,11 +17,11 @@ function prettier() {
 
 <template>
   <div class="w-full h-screen">
-    <h2 class="text-xl mb-2">將 json 字串美化</h2>
+    <h2 class="text-xl mb-2">將 Json 字串美化</h2>
     <!-- input -->
     <div class="h-1/3">
-      <textarea class="p-1 text-black rounded-md w-full h-full resize" v-model="input" name="input" id="input"
-        placeholder="json string"></textarea>
+      <textarea class="py-1 px-2 text-black rounded-md w-full h-full resize" v-model="input" name="input" id="input"
+        placeholder="輸入 Json 字串"></textarea>
     </div>
     <!-- button -->
     <div class=" w-full flex justify-center my-5">
@@ -31,7 +31,7 @@ function prettier() {
     </div>
     <!-- output -->
     <div class="h-1/3">
-      <textarea class="p-1 text-black rounded-md w-full h-full resize" v-model="output" disabled name="output"
+      <textarea class="py-1 px-2 text-black rounded-md w-full h-full resize" v-model="output" disabled name="output"
         id="output" placeholder="輸出結果"></textarea>
     </div>
   </div>
