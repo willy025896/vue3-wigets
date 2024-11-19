@@ -20,6 +20,10 @@ export const navList = [
     name: 'Json Tool',
     url: '/json-tool',
   },
+  {
+    name: 'Image Tool',
+    url: '/image-tool',
+  },
 ]
 
 // 外部連結

@@ -32,6 +32,11 @@ const router = createRouter({
       name: 'JsonTool',
       component: () => import('../views/JsonToolView.vue'),
     },
+    {
+      path: '/image-tool',
+      name: 'ImageTool',
+      component: () => import('../views/ImageToolView.vue'),
+    },
   ],
 })
 
