@@ -31,7 +31,7 @@ function setTitle() {
           <RouterLink :to="route.url">{{ route.name }}</RouterLink>
         </template>
       </nav>
-      <section>
+      <section class="text-center">
         <h3>其他外部連結</h3>
         <div class="link-group">
           <a v-for="link in externalLinks" :key="link.name" :href="link.url" target="_blank" rel="noopener">{{
@@ -41,7 +41,7 @@ function setTitle() {
       </section>
     </div>
   </header>
-  <main class="right-wrapper">
+  <main class="text-center lg:text-left px-16">
     <div class="container">
       <h2 class="text-3xl text-white font-bold mb-2">{{ title }}</h2>
       <RouterView />

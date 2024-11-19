@@ -8,7 +8,7 @@ const categories = ref(["Json Converter", "Json Prettier"])
 </script>
 
 <template>
-  <div class="w-full max-w-md px-2 sm:px-0">
+  <div class="w-full px-2 sm:px-0">
     <TabGroup>
       <!-- tabs -->
       <TabList class="flex space-x-1 rounded-xl bg-blue-900/20 p-1">

@@ -40,7 +40,7 @@ function checkCalcString() {
 </script>
 
 <template>
-  <div class="w-56 m-5 bg-slate-600 pt-5 pb-1 px-5 rounded-xl">
+  <div class="w-56 mx-auto my-5 bg-slate-600 pt-5 pb-1 px-5 rounded-xl">
     <div class="text-black bg-white h-10 pr-5 text-right text-3xl rounded-md">{{ displayValue }}</div>
     <div class="grid grid-cols-4 gap-1 my-3">
       <button class="block text-2xl p-3 cursor-pointer border border-slate-600 hover:rounded-md hover:border-slate-400"
