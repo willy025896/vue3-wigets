@@ -34,6 +34,8 @@ jobs:
       - name: Build Vue app
         run: |
           npm run build # This will create the 'dist' folder by default
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
 
   # Deployment job
   deploy:
