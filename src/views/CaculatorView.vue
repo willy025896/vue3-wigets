@@ -13,7 +13,7 @@ const handleClick = (button) => {
       break;
     case '=':
       try {
-        checkCalcString()
+        checkCalcString();
         displayValue.value = eval(displayValue.value).toString();
       } catch (error) {
         displayValue.value = error;

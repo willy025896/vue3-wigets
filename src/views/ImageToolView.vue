@@ -55,7 +55,7 @@ const createImagePreview = (file) => {
   const reader = new FileReader();
   reader.onload = (e) => {
     imageUrl.value.push(e.target.result);
-  }
+  };
   reader.readAsDataURL(file);
 };
 
@@ -85,7 +85,7 @@ const downloadJpg = () => {
     };
 
     img.src = url;
-  })
+  });
 };
 </script>
 

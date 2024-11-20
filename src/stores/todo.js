@@ -1,4 +1,4 @@
-import { defineStore } from 'pinia'
+import { defineStore } from 'pinia';
 
 export const useTodos = defineStore('todos', {
   state: () => ({
@@ -11,29 +11,29 @@ export const useTodos = defineStore('todos', {
   }),
   getters: {
     finishedTodos(state) {
-      return state.todos.filter((todo) => todo.isFinished)
+      return state.todos.filter((todo) => todo.isFinished);
     },
     unfinishedTodos(state) {
-      return state.todos.filter((todo) => !todo.isFinished)
+      return state.todos.filter((todo) => !todo.isFinished);
     },
     /**
      * @returns {{ data: object, id: number, isFinished: boolean }[]}
      */
     filteredTodos() {
       if (this.filter === 'finished') {
-        return this.finishedTodos
+        return this.finishedTodos;
       } else if (this.filter === 'unfinished') {
-        return this.unfinishedTodos
+        return this.unfinishedTodos;
       }
-      return this.todos
+      return this.todos;
     },
   },
   actions: {
     addTodo(data) {
       // 複製資料
-      let newData = JSON.parse(JSON.stringify(data))
+      let newData = JSON.parse(JSON.stringify(data));
       // 新增代辦清單
-      this.todos.push({ data: newData, id: this.nextId++, isFinished: false })
+      this.todos.push({ data: newData, id: this.nextId++, isFinished: false });
     },
   },
-})
+});

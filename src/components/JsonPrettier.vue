@@ -9,7 +9,7 @@ const indent = ref(4);
 const numericIndent = computed(() => {
   // 將輸入值轉為數字，不然 stringify 會直接將數字補在前面而不是補空白
   return Number(indent.value);
-})
+});
 
 function prettier() {
   output.value = JSON.stringify(JSON.parse(input.value), null, numericIndent.value);

@@ -24,7 +24,7 @@ export const navList = [
     name: 'Image Tool',
     url: '/image-tool',
   },
-]
+];
 
 // 外部連結
 export const externalLinks = [
@@ -33,7 +33,7 @@ export const externalLinks = [
     url: 'https://github.com/willy025896',
     icon: '',
   },
-]
+];
 
 // 主要使用的套件包（About 頁面使用）
 export const mainPackage = [
@@ -42,7 +42,7 @@ export const mainPackage = [
   { name: 'pinia', version: '^2.2.4' },
   { name: 'tailwindcss', version: '^3.4.14' },
   { name: 'vite', version: '^5.4.10' },
-]
+];
 
 // 檔案上傳限制數量
-export const fileNumLimit = 10
+export const fileNumLimit = 10;

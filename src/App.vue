@@ -9,7 +9,7 @@ const route = useRoute();
 
 watchEffect(() => {
   setTitle();
-})
+});
 
 function setTitle() {
   const nav = navList.find(nav => nav.url == route.path);
