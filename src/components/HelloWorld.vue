@@ -1,10 +1,11 @@
+<!-- 左側歡迎文字 -->
 <script setup>
 defineProps({
   msg: {
     type: String,
     required: true,
   },
-})
+});
 </script>
 
 <template>

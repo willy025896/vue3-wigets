@@ -1,6 +1,4 @@
-<script setup>
-</script>
-
+<!-- 首頁 -->
 <template>
   <main class="whitespace-pre-line leading-8 text-lg">
     <div>

@@ -1,10 +1,10 @@
 <script setup>
 import { ref } from 'vue';
-import { TabGroup, TabList, Tab, TabPanels, TabPanel } from '@headlessui/vue'
+import { TabGroup, TabList, Tab, TabPanels, TabPanel } from '@headlessui/vue';
 import Converter from '../components/JsonConverter.vue';
 import Prettier from '../components/JsonPrettier.vue';
 
-const categories = ref(["Json Converter", "Json Prettier"])
+const categories = ref(["Json Converter", "Json Prettier"]);
 </script>
 
 <template>

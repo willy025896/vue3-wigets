@@ -1,17 +1,18 @@
+<!-- Json prettier -->
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, ref } from 'vue';
 
-const input = ref('')
-const output = ref('')
-const indent = ref(4)
+const input = ref('');
+const output = ref('');
+const indent = ref(4);
 
 const numericIndent = computed(() => {
   // 將輸入值轉為數字，不然 stringify 會直接將數字補在前面而不是補空白
-  return Number(indent.value)
+  return Number(indent.value);
 })
 
 function prettier() {
-  output.value = JSON.stringify(JSON.parse(input.value), null, numericIndent.value)
+  output.value = JSON.stringify(JSON.parse(input.value), null, numericIndent.value);
 }
 </script>
 

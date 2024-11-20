@@ -1,9 +1,11 @@
+<!-- About 頁面 -->
 <script setup>
 import { mainPackage } from "../constant.js";
-import DocumentationIcon from '../components/icons/IconDocumentation.vue'
-import EcosystemIcon from '../components/icons/IconEcosystem.vue'
+import DocumentationIcon from '../components/icons/IconDocumentation.vue';
+import EcosystemIcon from '../components/icons/IconEcosystem.vue';
 </script>
 <template>
+  <!-- 起因 -->
   <section class="flex flex-col mt-2 mb-4">
     <h3 class="text-2xl mb-2 flex flex-row">
       <EcosystemIcon class="flex m-1.5" />起因
@@ -15,6 +17,8 @@ import EcosystemIcon from '../components/icons/IconEcosystem.vue'
       因此，這個專案就這樣子誕生了。
     </div>
   </section>
+
+  <!-- 專案套件表格 -->
   <section>
     <h3 class="text-2xl mb-2 flex flex-row">
       <DocumentationIcon class="flex m-1.5" />專案基本資訊

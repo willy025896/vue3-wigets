@@ -1,5 +1,5 @@
 <script setup>
-import { fileNumLimit } from "../constant";
+import { fileNumLimit } from "../constant.js";
 import { ref } from 'vue';
 import HintModal from "@/components/HintModal.vue";
 import HintText from "@/components/HintText.vue";

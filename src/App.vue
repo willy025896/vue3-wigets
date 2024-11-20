@@ -1,27 +1,28 @@
 <script setup>
-import { RouterLink, RouterView, useRoute } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import { RouterLink, RouterView, useRoute } from 'vue-router';
+import HelloWorld from './components/HelloWorld.vue';
 import { ref, watchEffect } from 'vue';
 import { navList, externalLinks } from './constant';
 
-const title = ref('home')
-const route = useRoute()
+const title = ref('home');
+const route = useRoute();
 
 watchEffect(() => {
-  setTitle()
+  setTitle();
 })
 
 function setTitle() {
-  const nav = navList.find(nav => nav.url == route.path)
+  const nav = navList.find(nav => nav.url == route.path);
   if (nav.name == 'About') {
-    title.value = '關於本專案'
+    title.value = '關於本專案';
   } else {
-    title.value = nav.name
+    title.value = nav.name;
   }
 }
 </script>
 
 <template>
+  <!-- 左側區塊 -->
   <header class="lg:border-r lg:border-[#5454547a]">
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
     <div class="wrapper">
@@ -41,6 +42,8 @@ function setTitle() {
       </section>
     </div>
   </header>
+
+  <!-- 右側區塊 -->
   <main class="text-center lg:text-left px-16">
     <div class="container">
       <h2 class="text-3xl text-white font-bold mb-2">{{ title }}</h2>

@@ -1,3 +1,39 @@
+<!-- Model 元件，可從父元件傳入 title、conent -->
+<script setup>
+import { ref } from 'vue';
+import {
+  TransitionRoot,
+  TransitionChild,
+  Dialog,
+  DialogPanel,
+  DialogTitle,
+} from '@headlessui/vue';
+
+const isOpen = ref(false);
+
+function closeModal() {
+  isOpen.value = false;
+}
+function openModal() {
+  isOpen.value = true;
+}
+
+defineProps({
+  title: {
+    type: String,
+    required: true,
+  },
+  content: {
+    type: String,
+    required: true,
+  },
+});
+
+defineExpose({
+  openModal
+});
+</script>
+
 <template>
   <TransitionRoot appear :show="isOpen" as="template">
     <Dialog as="div" @close="closeModal" class="relative z-10">
@@ -36,38 +72,3 @@
     </Dialog>
   </TransitionRoot>
 </template>
-
-<script setup>
-import { ref } from 'vue';
-import {
-  TransitionRoot,
-  TransitionChild,
-  Dialog,
-  DialogPanel,
-  DialogTitle,
-} from '@headlessui/vue';
-
-const isOpen = ref(false);
-
-function closeModal() {
-  isOpen.value = false;
-}
-function openModal() {
-  isOpen.value = true;
-}
-
-defineProps({
-  title: {
-    type: String,
-    required: true,
-  },
-  content: {
-    type: String,
-    required: true,
-  },
-});
-
-defineExpose({
-  openModal
-});
-</script>

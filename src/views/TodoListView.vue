@@ -1,43 +1,44 @@
+<!-- 代辦清單 -->
 <script setup>
-import { reactive, ref } from 'vue'
-import { storeToRefs } from 'pinia'
-import { useTodos } from '../stores/todo'
+import { reactive, ref } from 'vue';
+import { storeToRefs } from 'pinia';
+import { useTodos } from '../stores/todo';
 import {
   RadioGroup,
   RadioGroupLabel,
   RadioGroupOption,
-} from '@headlessui/vue'
+} from '@headlessui/vue';
 
-const todosStore = useTodos()
-const { filter, filteredTodos } = storeToRefs(todosStore)
+const todosStore = useTodos();
+const { filter, filteredTodos } = storeToRefs(todosStore);
 
-const options = ['all', 'finished', 'unfinished']
-const emptyName = ref(false)
+const options = ['all', 'finished', 'unfinished'];
+const emptyName = ref(false);
 const newTodo = reactive({
   name: '',
   description: '',
   deadline: ''
-})
+});
 
 function addTodo() {
   // 檢查代辦清單有沒有名稱，沒有的話不要新增
-  checkName()
+  checkName();
   if (emptyName.value) {
-    return
+    return;
   }
 
   // 新增代辦
-  todosStore.addTodo(newTodo)
+  todosStore.addTodo(newTodo);
 
   // 清空新增欄位
   for (const key in newTodo) {
-    newTodo[key] = ''
+    newTodo[key] = '';
   }
 }
 
 // 檢查有無代辦名稱
 function checkName() {
-  emptyName.value = newTodo.name == '' ? true : false
+  emptyName.value = newTodo.name == '' ? true : false;
 }
 </script>
 
