@@ -1,15 +1,21 @@
 <script setup>
+import { fileNumLimit } from "../constant";
 import { ref } from 'vue';
+import HintModal from "@/components/HintModal.vue";
+import HintText from "@/components/HintText.vue";
 import {
   RadioGroup,
   RadioGroupLabel,
   RadioGroupOption,
-} from '@headlessui/vue'
+} from '@headlessui/vue';
 
 // 存儲圖片 URL 和圖片檔案
-const imageUrl = ref(null);
-const imageFile = ref(null);
-const selQuality = ref(0.8)
+const imageUrl = ref([]);
+const imageFile = ref([]);
+const selQuality = ref(0.8);
+const modalRef = ref(null);
+const modalTitle = ref('提示');
+const modalContent = ref('最多只能選擇' + fileNumLimit + '個檔案');
 const qualities = ref([
   {
     name: '不壓縮',
@@ -24,14 +30,23 @@ const qualities = ref([
     name: '差',
     value: 0.1
   }
-])
+]);
 
 // 處理文件選擇
 const handleFileChange = (event) => {
-  const file = event.target.files[0];
-  if (file) {
-    imageFile.value = file;
-    createImagePreview(file);
+  const input = event.target;
+  // 檢查檔案數量
+  if (input.files.length > fileNumLimit) {
+    input.value = '';
+    modalRef.value?.openModal();
+    return;
+  }
+
+  for (const file of event.target.files) {
+    if (file) {
+      imageFile.value.push(file);
+      createImagePreview(file);
+    }
   }
 };
 
@@ -39,8 +54,8 @@ const handleFileChange = (event) => {
 const createImagePreview = (file) => {
   const reader = new FileReader();
   reader.onload = (e) => {
-    imageUrl.value = e.target.result;
-  };
+    imageUrl.value.push(e.target.result);
+  }
   reader.readAsDataURL(file);
 };
 
@@ -48,33 +63,37 @@ const createImagePreview = (file) => {
 const downloadJpg = () => {
   const canvas = document.createElement('canvas');
   const ctx = canvas.getContext('2d');
-  const img = new Image();
 
-  img.onload = () => {
-    // 設置 canvas 寬高為圖片的尺寸
-    canvas.width = img.width;
-    canvas.height = img.height;
+  // 處理陣列中的圖片
+  imageUrl.value.forEach((url, index) => {
+    const img = new Image();
 
-    // 將圖片繪製到 canvas 上
-    ctx.drawImage(img, 0, 0);
+    img.onload = () => {
+      canvas.width = img.width;
+      canvas.height = img.height;
 
-    // 轉換為 JPG 格式
-    const jpgDataUrl = canvas.toDataURL('image/jpeg', selQuality.value); // 設置壓縮品質為 0.8
+      ctx.drawImage(img, 0, 0);
 
-    // 創建下載鏈接
-    const a = document.createElement('a');
-    a.href = jpgDataUrl;
-    a.download = 'image.jpg'; // 設置下載文件名
-    a.click();
-  };
+      // 轉換為 JPG 格式，並設定壓縮品質
+      const jpgDataUrl = canvas.toDataURL('image/jpeg', selQuality.value); // 設置壓縮品質為 0.8
 
-  // 設置圖片源
-  img.src = imageUrl.value;
+      // 建立下載
+      const a = document.createElement('a');
+      a.href = jpgDataUrl;
+      a.download = 'image' + (index + 1) + '.jpg'; // 設置下載文件名
+      a.click();
+    };
+
+    img.src = url;
+  })
 };
 </script>
+
 <template>
   <div>
     <h2 class="text-xl mb-2">上傳並轉換圖片為 JPG</h2>
+    <!-- Hint -->
+    <HintText :text="'檔案數量限制：' + fileNumLimit" />
     <!-- 上傳圖片的 input -->
     <input class="block w-full text-sm text-slate-400 font-bold mb-2 cursor-pointer
 		file:mr-4 file:py-2 file:px-4
@@ -82,15 +101,14 @@ const downloadJpg = () => {
 		file:text-sm file:font-semibold
 		file:cursor-pointer
 		file:bg-[#00bd7e] file:text-white
-		hover:file:bg-white hover:file:text-[#00bd7e]" type="file" accept="image/*" @change="handleFileChange" />
-
+		hover:file:bg-white hover:file:text-[#00bd7e]" type="file" accept="image/*" @change="handleFileChange" multiple />
 
     <!-- 顯示預覽圖片 -->
-    <div v-if="imageUrl">
+    <div v-if="imageUrl.length > 0">
       <h2 class="text-xl mb-2">預覽圖片<span
           class="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10">尚未壓縮</span>
       </h2>
-      <img class="mb-2" :src="imageUrl" alt="Image Preview" />
+      <img class="mb-2" v-for="url in imageUrl" :src="url" :key="url" alt="Image Preview" />
       <RadioGroup class="mb-2" v-model="selQuality">
         <RadioGroupLabel class="text-xl">選擇品質</RadioGroupLabel>
         <div class="flex justify-around mt-1">
@@ -125,4 +143,7 @@ const downloadJpg = () => {
       <button @click="downloadJpg" class="text-white bg-[#00bd7e] rounded-md px-4 py-2">下載 JPG</button>
     </div>
   </div>
+
+  <!-- Modal -->
+  <HintModal ref="modalRef" :title="modalTitle" :content="modalContent" />
 </template>

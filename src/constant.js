@@ -35,6 +35,7 @@ export const externalLinks = [
   },
 ]
 
+// 主要使用的套件包（About 頁面使用）
 export const mainPackage = [
   { name: 'vue', version: '^3.5.12' },
   { name: 'vue-router', version: '^4.4.5' },
@@ -42,3 +43,6 @@ export const mainPackage = [
   { name: 'tailwindcss', version: '^3.4.14' },
   { name: 'vite', version: '^5.4.10' },
 ]
+
+// 檔案上傳限制數量
+export const fileNumLimit = 10
