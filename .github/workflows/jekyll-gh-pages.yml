@@ -46,6 +46,9 @@ jobs:
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
+        
+      - name: List build output
+        run: ls -R dist
 
   # Deployment job
   deploy:
