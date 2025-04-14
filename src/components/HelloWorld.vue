@@ -11,7 +11,7 @@ defineProps({
 <template>
   <div class="greetings">
     <h1 class="green">{{ msg }}</h1>
-    <h3>這裡有一些我試做的 Vue 功能。</h3>
+    <h3>這裡有一些我使用 Vue 做的小工具。</h3>
   </div>
 </template>
 
