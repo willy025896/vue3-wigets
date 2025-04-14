@@ -37,6 +37,11 @@ const router = createRouter({
       name: 'ImageTool',
       component: () => import('../views/ImageToolView.vue'),
     },
+    {
+      path: '/string-filter',
+      name: 'StringFilter',
+      component: () => import('../views/StringFilter.vue'),
+    },
   ],
 });
 

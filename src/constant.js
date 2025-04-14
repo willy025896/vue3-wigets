@@ -24,6 +24,10 @@ export const navList = [
     name: 'Image Tool',
     url: '/image-tool',
   },
+  {
+    name: 'String Filter',
+    url: '/string-filter',
+  },
 ];
 
 // 外部連結
