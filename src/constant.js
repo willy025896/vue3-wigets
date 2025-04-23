@@ -28,6 +28,10 @@ export const navList = [
     name: 'String Filter',
     url: '/string-filter',
   },
+  {
+    name: 'String Seperator',
+    url: '/string-seperator',
+  },
 ];
 
 // 外部連結

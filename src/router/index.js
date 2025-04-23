@@ -42,6 +42,11 @@ const router = createRouter({
       name: 'StringFilter',
       component: () => import('../views/StringFilter.vue'),
     },
+    {
+      path: '/string-seperator',
+      name: 'StringSeperator',
+      component: () => import('../views/StringSeperator.vue'),
+    },
   ],
 });
 
