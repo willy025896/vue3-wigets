@@ -6,6 +6,12 @@ import { createPinia } from 'pinia';
 import App from './App.vue';
 import router from './router';
 
+const redirect = sessionStorage.redirect;
+if (redirect) {
+  sessionStorage.removeItem('redirect');
+  router.replace(redirect);
+}
+
 const app = createApp(App);
 
 app.use(createPinia());

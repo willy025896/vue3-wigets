@@ -47,6 +47,11 @@ const router = createRouter({
       name: 'StringSeperator',
       component: () => import('../views/StringSeperator.vue'),
     },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'NotFound',
+      component: () => import('../views/NotFound.vue'), // 自訂的 404 頁面
+    },
   ],
 });
 
