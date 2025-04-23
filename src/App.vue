@@ -13,11 +13,16 @@ watchEffect(() => {
 
 function setTitle() {
   const nav = navList.find(nav => nav.url == route.path);
-  if (nav.name == 'About') {
-    title.value = '關於本專案';
+  if (nav) {
+    if (nav.name == 'About') {
+      title.value = '關於本專案';
+    } else {
+      title.value = nav.name;
+    }
   } else {
-    title.value = nav.name;
+    title.value = '找不到頁面';
   }
+
 }
 </script>
 
