@@ -7,9 +7,11 @@ import App from './App.vue';
 import router from './router';
 
 const redirect = sessionStorage.redirect;
+console.log(redirect);
 if (redirect) {
   sessionStorage.removeItem('redirect');
   router.replace(redirect);
+  console.log(redirect);
 }
 
 const app = createApp(App);
