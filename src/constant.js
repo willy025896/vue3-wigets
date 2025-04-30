@@ -32,6 +32,10 @@ export const navList = [
     name: 'String Seperator',
     url: '/string-seperator',
   },
+  {
+    name: 'Train',
+    url: '/train',
+  },
 ];
 
 // 外部連結
